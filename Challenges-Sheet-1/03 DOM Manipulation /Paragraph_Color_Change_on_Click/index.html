@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .question {
+        width: 40%;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        border: 0.5rem solid black;
+        justify-content: space-evenly;
+      }
+
+      p{
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="question">
+      <h3>Change the Color of a Paragraph on Click</h3>
+      <div class="paraContainer">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam illo,
+          magnam maiores sed esse sit. Ad, commodi at sapiente voluptatem amet
+          optio sequi voluptas quos, aliquam nulla dolores fugiat dolor odit
+          quaerat deleniti quae.
+        </p>
+      </div>
+      <hr />
+    </div>
+
+    <script>
+
+        
+
+        const para = document.querySelector("p");
+        para.addEventListener("click", (e) => {
+            if(para.style.color === "red"){
+                para.style.color = "black";
+            }else{
+                para.style.color = "red"
+            }
+            
+        })
+    </script>
+  </body>
+</html>

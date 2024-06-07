@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        height: 600vh;
+        width: 100vw;
+      }
+
+      /* Styles for Navigation Bar */
+      nav {
+        position: relative;
+        height: 50px;
+        padding: 10px 20px;
+
+        width: 100vw;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <script>
+      const nav = document.querySelector("nav");
+
+      function handleScroll() {
+        const scrollY = window.scrollY;
+        if (scrollY > 0) {
+          nav.classList.add("sticky");
+        } else {
+          nav.classList.remove("sticky");
+        }
+      }
+
+      window.addEventListener("scroll", handleScroll);
+    </script>
+  </body>
+</html>

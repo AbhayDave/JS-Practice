@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>
+        <input type="text" id="display" placeholder="0"></input>
+        <hr>
+        <div id="btn-container">
+            <div class="calc-btn">/</div>
+            <div class="calc-btn">*</div>
+            <div class="calc-btn">-</div>
+            <div class="calc-btn">+</div>
+            <div class="calc-btn">7</div>
+            <div class="calc-btn">8</div>
+            <div class="calc-btn">9</div>
+            <div class="calc-btn">(</div>
+            <div class="calc-btn">4</div>
+            <div class="calc-btn">5</div>
+            <div class="calc-btn">6</div>
+            <div class="calc-btn">)</div>
+            <div class="calc-btn">1</div>
+            <div class="calc-btn">2</div>
+            <div class="calc-btn">3</div>
+            <div class="calc-btn">C</div>
+            <div class="calc-btn">0</div>
+            <div class="calc-btn">del</div>
+            <div class="calc-btn">.</div>
+            <div class="calc-btn">=</div>
+        </div>
+    </main>
+
+
+    <script>
+        const display = document.querySelector("#display")
+        const btns = document.querySelectorAll(".calc-btn")
+
+        let expression = []
+
+        btns.forEach((btn) => {
+            if(btn.textContent === "C"){
+              btn.addEventListener('click', (e) => {
+                display.value = ""
+                expression = []
+            })
+            }else if(btn.textContent === "del"){
+               
+                btn.addEventListener('click', (e) => {
+                    
+                    expression.pop()
+                    display.value = expression.join("")
+                
+            })
+              
+                
+            }else if(btn.textContent === "="){
+               
+                btn.addEventListener('click', (e) => {
+                    try {
+                    const result = eval(expression.join(""))
+                     display.value = result
+                     expression = []
+                     expression.push(result)        
+                    } catch (error) {
+                        alert("Not a valid calculation")
+                        display.value = ""
+                        expression = []
+                    }
+                
+            })
+              
+                
+            }else{
+            btn.addEventListener('click', (e) => {
+                expression.push(e.target.textContent);
+                display.value = expression.join("")
+            })
+            }
+            
+        })
+
+
+        document.addEventListener('keydown', (event) => {
+  const key = event.key;
+  if (key >= '0' && key <= '9' || key === '.' || key === '+' || key === '-' || key === '*' || key === '/') {
+                expression.push(key);
+                display.value = expression.join("")
+  }else if(key === 'Enter'){
+       try {
+                    const result = eval(expression.join(""))
+                     display.value = result
+                     expression = []
+                     expression.push(result)        
+                    } catch (error) {
+                        alert("Not a valid calculation")
+                        display.value = ""
+                        expression = []
+                    }
+  }else if (key === "Backspace") {
+                   
+                    expression.pop()
+                    display.value = expression.join("")
+
+  }{
+    return
+  }
+});
+
+    </script>
+
+</body>
+</html>

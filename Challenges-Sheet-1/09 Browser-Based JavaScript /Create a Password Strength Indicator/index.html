@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      main {
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 1rem;
+        border: 1px solid black;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      main input {
+        /* height: 2rem; */
+        padding: 1rem;
+        font-size: 1.5rem;
+      }
+
+      main button {
+        /* height: 2rem; */
+        font-size: 1.5rem;
+        padding: 1rem;
+      }
+
+      main div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div>
+        <input onkeyup="checkPasswordIntegrity()" type="text" id="passInp" />
+      </div>
+
+      <div id="result">Enter the password to check its Integrity</div>
+    </main>
+
+    <script>
+      const passInp = document.querySelector("#passInp");
+      const result = document.querySelector("#result");
+
+      function checkPasswordIntegrity() {
+        const passValue = passInp.value;
+
+        if (!passValue) {
+          result.innerHTML = ` Enter something in the input box `;
+        }
+
+        if (passValue.length < 8) {
+          result.innerHTML = ` A good password should have atleast more than 8 characters `;
+        }
+
+        if (passValue.length > 8) {
+          result.innerHTML = ` loding `;
+        }
+
+        const regex =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+
+        // if(passInp.value.test(regex))
+
+        const text = "YourStringHere"; // Replace with your actual string
+        const resultt = regex.test(passInp.value);
+        if (resultt) {
+          console.log("String matches the pattern!");
+        } else {
+          console.log("String does not match the pattern.");
+        }
+      }
+    </script>
+  </body>
+</html>

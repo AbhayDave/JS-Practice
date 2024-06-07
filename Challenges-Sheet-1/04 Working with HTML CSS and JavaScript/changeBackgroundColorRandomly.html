@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-size: 5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="text">ABHAY DAVE</div>
+
+    <script>
+      (function () {
+        setInterval(() => {
+          let letters = "0123456789ABCDEF";
+          let bgColor = ["#"];
+          let textColor = ["#"];
+          for (var i = 0; i < 6; i++) {
+            bgColor.push(letters[Math.floor(Math.random() * 16)]);
+            textColor.push(letters[Math.floor(Math.random() * 16)]);
+          }
+
+          const body = document.querySelector("body");
+
+          body.style.backgroundColor = bgColor.join("");
+          body.style.color = textColor.join("");
+        }, 3000);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  font-size: 7rem;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: red;
+  padding: 1rem;
+  border-radius: 1rem;
+  user-select: none;
+}
+
+.container{
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border: 3px solid red;
+    border-radius: 2rem;
+}
+
+.divider{
+    margin: 0 -5rem;
+    border: none !important;
+}
+
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input
+      type="text"
+      placeholder="Enter City Name"
+      name="cityName"
+      id="cityName"
+    />
+    <button onclick="doo()">do it</button>
+
+    <div id="weather-data">Nothing to show here, search city name</div>
+
+    <script>
+      async function doo() {
+        const cityName = document.querySelector("#cityName").value;
+        const weatherData = document.querySelector("#weather-data");
+        console.log(cityName);
+        if (!cityName) {
+          console.log("Nothing Entered");
+          return;
+        }
+        const url = `https://open-weather13.p.rapidapi.com/city/${cityName}/EN`;
+        const options = {
+          method: "GET",
+          headers: {
+            "X-RapidAPI-Key":
+              "e9bdd17c24msh66f77b8210db35ap141a91jsn191e5c2e355f",
+            "X-RapidAPI-Host": "open-weather13.p.rapidapi.com",
+          },
+        };
+
+        try {
+          const response = await fetch(url, options);
+          const result = await response.json();
+          console.log(result);
+
+          weatherData.innerHTML = `<h1>${result.name}</h1>
+                                        <h3>${result.main.temp}</h3>
+                                        <h3>${result.weather[0].main}</h3>
+                                    <h3>${result.weather[0].description}</h3>
+                                    `;
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    </script>
+  </body>
+</html>

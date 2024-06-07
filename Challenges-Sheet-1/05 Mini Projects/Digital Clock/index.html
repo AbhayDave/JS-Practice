@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="container">
+        <div class="hr-one"></div>
+        <!-- <div class="divider">|</div> -->
+        <div class="hr-zero"></div>
+      </section>
+      <section>:</section>
+      <section class="container">
+        <div class="mm-one"></div>
+        <!-- <div class="divider">|</div> -->
+        <div class="mm-zero"></div>
+      </section>
+      <section>:</section>
+      <section class="container">
+        <div class="s-one"></div>
+        <!-- <div class="divider">|</div> -->
+        <div class="s-zero"></div>
+      </section>
+    </main>
+
+    <script>
+
+      setInterval(() => {
+        const hours = new Date().getHours().toString();
+
+        const minutes = new Date().getMinutes().toString();
+
+        const seconds = new Date().getSeconds().toString();
+
+        const hrOne = document.querySelector(".hr-one");
+        const hrZero = document.querySelector(".hr-zero");
+        const mmOne = document.querySelector(".mm-one");
+        const mmZero = document.querySelector(".mm-zero");
+
+        const sOne = document.querySelector(".s-one");
+        const sZero = document.querySelector(".s-zero");
+
+        hrOne.textContent = hours[0];
+        hrZero.textContent = hours[1];
+
+        mmOne.textContent = minutes[0];
+        mmZero.textContent = minutes[1];
+
+        sOne.textContent = seconds[0];
+        sZero.textContent = seconds[1];
+      }, 1000);
+    </script>
+  </body>
+</html>

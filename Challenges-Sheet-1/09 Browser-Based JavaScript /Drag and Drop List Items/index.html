@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+         <ul ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
+       
+          <li id="p1" ondrop="dropHandlerItem(event)" draggable="true">ABHAY 1</li>
+          <li id="p2" ondrop="dropHandlerItem(event)" draggable="true">ABHAY 2</li>
+          <li id="p3" ondrop="dropHandlerItem(event)" draggable="true">ABHAY 3</li>
+          <li id="p4" ondrop="dropHandlerItem(event)" draggable="true">ABHAY 4</li>
+          <li id="p5" ondrop="dropHandlerItem(event)" draggable="true">ABHAY 5</li>
+          <li id="p6" ondrop="dropHandlerItem(event)" draggable="true">ABHAY 6</li>
+        </ul>
+      </section>
+
+
+       <!-- <p
+      id="target"
+      ondrop="dropHandler(event)"
+      ondragover="dragoverHandler(event)"
+    >
+      Drop Zone
+    </p> -->
+
+      <section>
+        <ul ondrop="dropHandler(event)" id="target" ondragover="dragoverHandler(event)">
+          <li id="d1" ondrop="dropHandlerItem(event)" draggable="true">Dave 1</li>
+          <li id="d2" ondrop="dropHandlerItem(event)" draggable="true">Dave 2</li>
+          <li id="d3" ondrop="dropHandlerItem(event)" draggable="true">Dave 3</li>
+          <li id="d4" ondrop="dropHandlerItem(event)" draggable="true">Dave 4</li>
+          <li id="d5" ondrop="dropHandlerItem(event)" draggable="true">Dave 5</li>
+          <li id="d6" ondrop="dropHandlerItem(event)" draggable="true">Dave 6</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="index.js"></script>
+<!-- 
+    <p id="p1" draggable="true">This element is draggable.</p>
+
+    <p
+      id="target"
+      ondrop="dropHandler(event)"
+      ondragover="dragoverHandler(event)"
+    >
+      Drop Zone
+    </p>
+
+    <script>
+      function dragoverHandler(ev) {
+        ev.preventDefault();
+        ev.dataTransfer.dropEffect = "move";
+      }
+      function dropHandler(ev) {
+        ev.preventDefault();
+        // Get the id of the target and add the moved element to the target's DOM
+        const data = ev.dataTransfer.getData("text/plain");
+        ev.target.appendChild(document.getElementById(data));
+      }
+
+      function dragstartHandler(ev) {
+        // Add the target element's id to the data transfer object
+        ev.dataTransfer.setData("text/plain", ev.target.id);
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        // Get the element by id
+        const element = document.getElementById("p1");
+        // Add the ondragstart event listener
+        element.addEventListener("dragstart", dragstartHandler);
+      });
+    </script> -->
+  </body>
+</html>
